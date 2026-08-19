@@ -1,10 +1,16 @@
 # 🚀 PromptStudio AI — Yapay Zeka Prompt & Şablon Yöneticisi
 
-> **“Web Geliştirme; Yapay Zeka Proje Yönergesi”** standartlarına tam uyumlu olarak geliştirilmiş; **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4** ve **LocalStorage** destekli modern, modüler ve yüksek performanslı Web Uygulaması.
+[![React 19](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat&logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**PromptStudio AI**, yapay zeka mühendisleri, geliştiriciler ve içerik üreticileri için tasarlanmış; **Claude 3.5 Sonnet**, **GPT-4o**, **Gemini 1.5 Pro** ve **DeepSeek V3** gibi gelişmiş yapay zeka modellerine yönelik dinamik prompt şablonlarını tek bir merkezden yönetmeyi, değişkenlerini canlı olarak doldurmayı ve test etmeyi sağlayan modern bir web platformudur.
 
 ---
 
-## 📸 Ekran Önizlemesi
+## 📸 Arayüz Önizlemesi
 
 ```text
 +-----------------------------------------------------------------------------------+
@@ -13,12 +19,12 @@
 |  🎯 HERO: Yapay Zeka Promptlarınızı Tek Bir Yerden Yönetin ve Test Edin           |
 |  [+ Yeni Prompt Oluştur]  [Kütüphaneye Git]  [Test Alanını Aç]                    |
 |                                                                                   |
-|  📊 KPI STATS                                                                     |
+|  📊 METRİK & DAĞILIM PANOSU                                                       |
 |  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌────────────────┐ |
 |  │ Toplam: 6 Prompt │ │ Kategori: 5 Alan │ │ Modeller: 4 AI   │ │ Dinamik Şablon │ |
 |  └──────────────────┘ └──────────────────┘ └──────────────────┘ └────────────────┘ |
 |                                                                                   |
-|  ⚡ PROMPT KÜTÜPHANESİ & CRUD İŞLEMLERİ                                           |
+|  ⚡ PROMPT KÜTÜPHANESİ & CRUD YÖNETİMİ                                            |
 |  [🔍 Arama Yap...] [Kategori: Tümü ▾] [Model: Tümü ▾] [Sırala ▾] [⭐ Favoriler]     |
 |  ┌─────────────────────────────────┐ ┌─────────────────────────────────┐          |
 |  │ 🏷️ Coding • 🤖 Claude 3.5 Sonnet│ │ 🏷️ Data • 🤖 GPT-4o             │          |
@@ -31,33 +37,61 @@
 
 ---
 
-## 🎯 Projenin Amacı ve Çözdüğü Problem
+## 🎯 Projenin Çözdüğü Problem
 
-Geliştiriciler, içerik üreticileri ve veri bilimciler birden fazla yapay zeka modeli (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, DeepSeek V3) için yazdıkları karmaşık promptları ve değişkenli şablonları dağınık notlarda veya metin belgelerinde saklamakta zorlanırlar.
+Farklı yapay zeka modelleri için hazırlanan prompt şablonları genellikle not uygulamalarında veya dağınık metin dosyalarında kaybolur. Özellikle birden çok parametre içeren dinamik şablonlarda değişkenleri manuel olarak arayıp doldurmak zaman kaybına ve hatalara yol açar.
 
-**PromptStudio AI**, bu sorunu çözerek:
-1. Şablonları kategorize eder ve etiketler.
-2. `{{degiskenAdi}}` biçimindeki dinamik yer tutucuları otomatik tespit eder.
-3. Değişkenleri form üzerinden kolayca doldurup nihai promptu anında panoya kopyalama imkanı sunar.
-4. Tüm verileri yerel depolamada (**LocalStorage**) güvenle saklayarak harici backend veya hesap kurulumu ihtiyacını ortadan kaldırır.
-
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-- **Kütüphane & Çerçeve:** [React 19](https://react.dev/)
-- **Dil:** [TypeScript](https://www.typescriptlang.org/) (Strict Type-Safety, sıfır `any` kullanımı)
-- **Derleyici & Paketleyici:** [Vite](https://vite.dev/)
-- **Stil & Tasarım:** [Tailwind CSS v4](https://tailwindcss.com/) (Glassmorphism, Modern Dark Palette)
-- **İkon Seti:** [Lucide React](https://lucide.dev/)
-- **Veri Saklama:** HTML5 LocalStorage (Type-safe `PromptService` soyutlaması)
-- **Deployment Hedefleri:** [Netlify](https://www.netlify.com/) & [Vercel](https://vercel.com/) (SPA redirect kuralları hazır)
+**PromptStudio AI**, bu süreci tamamen otomatikleştirir:
+- **Merkezi Şablon Havuzu:** Tüm promptlarınızı kategori, model ve etiket bazında organize eder.
+- **Otomatik Değişken Tespiti:** Şablon içindeki `{{degiskenAdi}}` formatındaki alanları anında algılar.
+- **Canlı Test & Enjeksiyon Alanı:** Değişkenleri form alanları üzerinden doldurup nihai promptu tek tıkla panoya kopyalama imkanı sunar.
+- **Sıfır Bağımlılık & Güvenli Depolama:** Harici veritabanı veya hesap gerektirmeksizin tüm verileri tarayıcının yerel hafızasında (`LocalStorage`) saklar.
 
 ---
 
-## 📁 Mimari ve Klasör Ağaç Yapısı
+## ✨ Temel Özellikler
 
-Yönergede belirtilen **Components**, **Pages** ve **Interfaces** klasör mimarisine harfiyen uyulmuştur:
+### 1. 📊 Genel Bakış & Metrikler
+- **Gerçek Zamanlı İstatistikler:** Kütüphanedeki toplam prompt sayısı, kategori çeşitliliği, desteklenen AI modelleri ve parametrik şablon oranı.
+- **Kategori & Model Dağılımı:** Hangi kategorilerde (Coding, Data, Marketing vb.) ve hangi modellerde yoğunlaşıldığını gösteren görsel çubuk grafikler.
+- **Son Eklenen Şablonlar:** En son güncellenen promptlara hızlı erişim ve doğrudan test etme butonları.
+
+### 2. 📚 Prompt Kütüphanesi & CRUD Yönetimi
+- **İkili Görünüm Modu:** İhtiyaca göre kart (Grid) veya detaylı liste (Table) görünümü arasında anlık geçiş.
+- **Anlık Metin Araması:** Başlık, açıklama, şablon metni ve etiketlerde gerçek zamanlı filtreleme.
+- **Gelişmiş Filtreleme:** Kategori, AI modeli ve favori durumuna göre filtreleme.
+- **Esnek Sıralama:** En yeni, en eski veya alfabetik (A-Z / Z-A) sıralama.
+- **Tam CRUD Desteği:**
+  - **Create:** Validasyonlu ve değişken önizlemeli yeni prompt ekleme modalı.
+  - **Read:** Şablon detaylarını, sıcaklık (temperature) değerini ve sistem rollerini inceleme ekranı.
+  - **Update:** Mevcut şablonu formda ön-doldurarak (pre-fill) anında güncelleme.
+  - **Delete:** Yanlışlıkla silmeleri önleyen onay modalı ile güvenli kaldırma.
+
+### 3. 🧪 Değişken Enjeksiyonu & Playground (Test Alanı)
+- Kütüphaneden seçilen veya serbestçe yazılan şablonlardaki tüm `{{değişken}}` yapılarını dinamik form alanlarına dönüştürür.
+- Değerler girildikçe nihai çıktıyı anlık olarak derler ve tek tıkla panoya kopyalar.
+
+### 4. 🛡️ Katı Tip Güvenliği & Hata Toleransı
+- Sıfır `any` prensibi ile katı TypeScript arayüzleri (`interface`) ve tipleri.
+- Form validasyonları, karakter limitleri ve güvenli silme mekanizmaları.
+- Geri bildirimler için modern ve animasyonlu **Toast Bildirim Sistemi**.
+
+---
+
+## 🛠️ Teknoloji Yığını
+
+| Katman | Teknoloji | Açıklama |
+| :--- | :--- | :--- |
+| **Kütüphane** | React 19 | En güncel React çekirdeği ve modern component mimarisi |
+| **Programlama Dili** | TypeScript 5.7 | Katı tip tanımları ve compile-time güvenlik |
+| **Derleme Aracı** | Vite 8 | Ultra hızlı HMR (Hot Module Replacement) ve optimize bundle |
+| **Stil & Tasarım** | Tailwind CSS v4 | Glassmorphism, modern koyu tema (dark palette) ve mikro animasyonlar |
+| **İkonlar** | Lucide React | Modern ve tutarlı SVG ikon kütüphanesi |
+| **Veri Katmanı** | HTML5 LocalStorage | Type-safe `PromptService` sınıfı üzerinden yerel veri yönetimi |
+
+---
+
+## 📁 Proje Dosya ve Klasör Mimarisi
 
 ```text
 src/
@@ -73,127 +107,55 @@ src/
 │   ├── filter.interface.ts  # PromptFilterState, SortOption, ViewMode
 │   ├── toast.interface.ts   # ToastMessage, ToastType
 │   └── stats.interface.ts   # DashboardStats
-├── pages/                   # Sayfa seviyesi bileşenler
-│   ├── DashboardPage.tsx    # İstatistikler, KPI paneli ve hızlı aksiyonlar
-│   ├── PromptsPage.tsx      # Ana CRUD yönetim merkezi (Grid & Tablo)
-│   ├── PlaygroundPage.tsx   # Canlı değişken enjeksiyonu ve prompt test alanı
-│   └── AboutPage.tsx        # Proje mimarisi ve uyumluluk raporu
+├── pages/                   # Sayfa seviyesi ana bileşenler
+│   ├── DashboardPage.tsx    # Genel bakış paneli ve metrikler
+│   ├── PromptsPage.tsx      # Prompt kütüphanesi ve CRUD arayüzü
+│   ├── PlaygroundPage.tsx   # Canlı değişken enjeksiyonu ve test alanı
+│   └── AboutPage.tsx        # Proje mimarisi ve teknik detaylar
 ├── hooks/                   # Custom Hook'lar (usePrompts, useToast)
 ├── services/                # Veri katmanı (PromptService - LocalStorage CRUD)
-├── utils/                   # Yardımcı araçlar (initialData, helpers)
-├── App.tsx                  # Ana uygulama ve modal orkestrasyonu
-├── main.tsx                 # React DOM giriş noktası
-└── index.css                # Tailwind CSS v4 ve global stiller
+├── utils/                   # Yardımcı fonksiyonlar (initialData, helpers)
+├── App.tsx                  # Ana uygulama düzeni ve modal yönetimi
+├── main.tsx                 # React DOM başlatıcı
+└── index.css                # Tailwind CSS stilleri ve tema değişkenleri
 ```
 
 ---
 
-## ✨ Temel Özellikler & CRUD Mimarisi
+## 💻 Yerel Geliştirme ve Kurulum
 
-### 1. 🟢 CREATE (Ekleme)
-- Başlık, kategori, model, kısa açıklama, sistem talimatı, şablon metni, etiketler ve sıcaklık (creativity) parametresi içeren modal form.
-- Form üzerinde boş alan, karakter limiti ve sıcaklık aralığı için **kapsamlı validasyon**.
-- Şablon metninde yazılan `{{degisken}}` etiketlerini form üzerinde **anlık tespit edip rozet olarak gösterme**.
-
-### 2. 🔵 READ / LIST (Listeleme & Okuma)
-- **İkili Görünüm Desteği:** Kart (Grid) veya Tablo (Table) görünümü.
-- **Anlık Metin Araması:** Başlık, açıklama, şablon içeriği ve etiketlerde gerçek zamanlı arama.
-- **Çoklu Filtreleme:** Kategoriye ve AI Modeline göre filtreleme + Sadece Favorileri Göster filtresi.
-- **Sıralama:** En yeni, en eski, alfabetik (A-Z / Z-A), en çok kullanılanlar ve favoriler öncelikli sıralama.
-- **Detay Modalı:** Şablonun tüm meta verilerini, sistem rolünü ve değişkenlerini inceleme ekranı.
-
-### 3. 🟡 UPDATE (Güncelleme)
-- Düzenle butonu ile mevcut verilerin formda önceden doldurulması (**pre-fill**).
-- Tek tıkla favoriye ekleme/çıkarma.
-- Güncellenen verilerin anında ekranda ve `LocalStorage` üzerinde senkronize edilmesi.
-
-### 4. 🔴 DELETE (Silme)
-- Yanlışlıkla silmeleri önleyen **Güvenli Silme Onay Modalı** (`DeleteConfirmModal`).
-- Silme işlemi tamamlandığında kullanıcıya **Toast Bildirimi** verilmesi.
-
-### 5. 🧪 PLAYGROUND & TEST (Değişken Enjeksiyonu)
-- Kütüphaneden seçilen veya özel yazılan şablonlardaki tüm değişkenleri tespit eder.
-- Her değişken için giriş alanı üretir, değerleri dinamik olarak şablon içerisine enjekte eder.
-- Nihai hazır promptu tek tıkla panoya kopyalar ve kullanım sayacını artırır.
-
----
-
-## 🚀 Kurulum ve Çalıştırma
-
-### Gereksinimler
+### Önkoşullar
 - **Node.js**: v18.0.0 veya üzeri
-- **npm** / **yarn** / **pnpm**
+- **npm** (veya `yarn` / `pnpm`)
 
-### Adım 1: Depoyu Klonlayın veya İndirin
+### 1. Depoyu İndirin ve Proje Dizinine Geçin
 ```bash
-git clone https://github.com/kullaniciadi/prompt-studio-ai.git
 cd prompt-studio-ai
 ```
 
-### Adım 2: Bağımlılıkları Yükleyin
+### 2. Bağımlılıkları Yükleyin
 ```bash
 npm install
 ```
 
-### Adım 3: Geliştirme Sunucusunu Başlatın
+### 3. Geliştirme Sunucusunu Başlatın
 ```bash
 npm run dev
 ```
-Tarayıcınızda `http://localhost:5173` adresini açarak uygulamayı test edebilirsiniz.
+Uygulama varsayılan olarak `http://localhost:5173` adresinde çalışacaktır.
 
-### Adım 4: Production Build Alın
+### 4. Üretim İçin Derleyin (Production Build)
 ```bash
 npm run build
 ```
 
-### Adım 5: Build Önizlemesi
+### 5. Derleme Çıktısını Önizleyin
 ```bash
 npm run preview
 ```
 
 ---
 
-## 🌐 Canlı Yayına Alma (Deployment)
-
-Proje, **Netlify** ve **Vercel** platformlarına doğrudan deploy edilmeye hazırdır.
-
-### Netlify Deployment:
-1. [Netlify](https://app.netlify.com)'e giriş yapın ve `Add new site > Import an existing project` seçeneğini tıklayın.
-2. GitHub deponuzu seçin.
-3. Build ayarları otomatik algılanacaktır:
-   - **Build Command:** `npm run build`
-   - **Publish Directory:** `dist`
-4. Projede yer alan `public/_redirects` ve `netlify.toml` dosyaları sayesinde SPA sayfaları 404 hatası vermeden kusursuz çalışır.
-
-### Vercel Deployment:
-1. [Vercel](https://vercel.com)'e giriş yapın ve `Add New Project` seçeneğini tıklayın.
-2. GitHub deponuzu içe aktarın.
-3. `vercel.json` yapılandırması sayesinde tek tıkla yayına alınır.
-
----
-
-## 📋 Yönerge Uyumluluk Denetimi (Audit)
-
-| Yönerge Maddesi | Durum | Karşılandığı Bileşen / Dosya |
-| :--- | :---: | :--- |
-| **Modern JS Kütüphanesi** | ✅ PASS | React 19 + TypeScript + Vite (`src/App.tsx`, `package.json`) |
-| **CSS Çerçevesi** | ✅ PASS | Tailwind CSS v4 (`src/index.css`, `vite.config.ts`) |
-| **Components Klasörü** | ✅ PASS | `src/components/` (Common, Dashboard, Prompts) |
-| **Pages Klasörü** | ✅ PASS | `src/pages/` (Dashboard, Prompts, Playground, About) |
-| **Interfaces Klasörü** | ✅ PASS | `src/interfaces/` (prompt, filter, toast, stats interfaces) |
-| **CREATE İşlemi** | ✅ PASS | `src/components/prompts/PromptFormModal.tsx` + `PromptService.create()` |
-| **READ / LIST İşlemi** | ✅ PASS | `src/components/prompts/PromptCard.tsx` & `PromptTable.tsx` |
-| **UPDATE İşlemi** | ✅ PASS | `src/components/prompts/PromptFormModal.tsx` + `PromptService.update()` |
-| **DELETE İşlemi** | ✅ PASS | `src/components/prompts/DeleteConfirmModal.tsx` + `PromptService.delete()` |
-| **LocalStorage Desteği** | ✅ PASS | `src/services/promptService.ts` & `src/hooks/usePrompts.ts` |
-| **Form Validasyonu** | ✅ PASS | `PromptService.validateForm()` (Hata mesajları ve kısıtlar) |
-| **Kullanıcı Geri Bildirimi** | ✅ PASS | `src/components/common/Toast.tsx` & `src/hooks/useToast.ts` |
-| **Responsive Tasarım** | ✅ PASS | Mobil, Tablet ve Masaüstü uyumlu flex & grid düzenleri |
-| **Netlify / Vercel Hazırlığı** | ✅ PASS | `public/_redirects`, `netlify.toml`, `vercel.json` |
-| **Build Testi** | ✅ PASS | `npm run build` sıfır hata ile tamamlanmaktadır |
-| **GitHub README** | ✅ PASS | Kapsamlı `README.md` dokümantasyonu |
-
----
-
 ## 📄 Lisans
-Bu proje eğitim ve portföy amaçlı olarak MIT lisansı altında hazırlanmıştır.
+
+Bu proje **MIT Lisansı** altında lisanslanmıştır.
